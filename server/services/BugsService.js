@@ -19,10 +19,6 @@ class BugsService {
     let data = await _repository.create(rawData);
     return data
   }
-  async checkById(id) {
-    let data = await _repository.findById({ _id: id })
-    return data
-  }
   async edit(id, update) {
     let dataCheck = await _repository.findById({ _id: id })
     console.log(dataCheck);

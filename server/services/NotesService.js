@@ -10,6 +10,23 @@ class NotesService {
     if (!data) {
       throw new ApiError('Invalid ID', 400)
     }
+    return data
+  }
+  async getNotesOfBug(id) {
+    let data = await _repository.find({ "bug": id })
+    return data
+  }
+  async create(reqBody) {
+    let data = await _repository.create(reqBody)
+    return data
+  }
+  async edit(id, update) {
+    let data = await _repository.findOneAndUpdate({ _id: id }, update, { new: true })
+    return data
+  }
+  async delete(id) {
+    let data = await _repository.findOneAndDelete({ _id: id })
+    return data
   }
 }
 
