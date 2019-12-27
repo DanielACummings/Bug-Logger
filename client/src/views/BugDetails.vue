@@ -1,6 +1,7 @@
 
 <template>
-  <div class="bug-details">
+  <div class="bug-details container">
+    <br />
     <div class="row">
       <div class="col-12">
         <div class="row">
@@ -18,13 +19,15 @@
           </div>
         </div>
       </div>
-      <div class="col-12">{{bug}}</div>
+      <div class="col-12">
+        <bug-info :bugData="bug" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import BugComponent from "@/components/BugComponent";
+import BugInfo from "@/components/BugInfo";
 export default {
   name: "BugDetails",
   mounted() {
@@ -40,7 +43,7 @@ export default {
   },
   methods: {},
   components: {
-    BugComponent
+    BugInfo
   }
 };
 </script>

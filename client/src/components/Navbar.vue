@@ -2,7 +2,9 @@
   <div class="Navbar">
     <div class="row">
       <div class="col-5">
-        <h1>Bug Logger</h1>
+        <router-link :to="{name: 'home'}">
+          <h1>Bug Logger</h1>
+        </router-link>
       </div>
       <div class="col-7">
         <h3>Report A Bug</h3>
