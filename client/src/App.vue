@@ -1,6 +1,6 @@
 <template>
-  <div class="container-fluid" id="app">
-    <Navbar />
+  <div id="app">
+    <Navbar class="container-fluid" />
     <router-view />
   </div>
 </template>
