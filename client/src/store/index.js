@@ -14,7 +14,7 @@ export default new Vuex.Store({
   state: {
     bugs: [],
     activeBug: [],
-    comments: []
+    notes: []
   },
   mutations: {
     addBug(state, bug) {
@@ -25,6 +25,15 @@ export default new Vuex.Store({
     },
     setActiveBug(state, bug) {
       state.activeBug = bug
+    },
+    addNote(state, note) {
+      state.notes.push(note)
+    },
+    setNotesOfBug(state, data) {
+      state.notes = data
+    },
+    setNotes(state, data) {
+      state.notes = data
     }
   },
   actions: {
@@ -39,6 +48,22 @@ export default new Vuex.Store({
     async getBugById({ commit, dispatch }, id) {
       let res = await _api.get('bugs/' + id)
       commit('setActiveBug', res.data)
+    },
+    async editBug({ commit, dispatch }, payload) {
+      await _api.put('bugs/' + payload.id, payload)
+      dispatch('getBugs')
+    },
+    async createNote({ commit, dispatch }, note) {
+      let res = await _api.post('notes', note)
+      commit('addNote', res.data)
+    },
+    async getNotesByBug(id) {
+      let res = await _api.get('notes')
+      this.commit('setNotesOfBug', res.data)
+    },
+    async getNotes() {
+      let res = await _api.get('notes')
+      this.commit('setNotes', res.data)
     }
   },
   modules: {

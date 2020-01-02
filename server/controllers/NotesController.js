@@ -5,6 +5,7 @@ export default class NotesController {
   constructor() {
     this.router = express
       .Router()
+      .get('/', this.getAll)
       .get('/:id', this.getById)
       .post('', this.create)
       .put('/:id', this.edit)
@@ -19,10 +20,18 @@ export default class NotesController {
       next(error)
     }
   }
+  async getAll(req, res, next) {
+    try {
+      let data = await notesService.getAll()
+      return res.send(data)
+    } catch (error) {
+      next(error)
+    }
+  }
   async create(req, res, next) {
     try {
       let data = notesService.create(req.body)
-      return res.send(data)
+      return res.status(201).send(data)
     } catch (error) {
       next(error)
     }

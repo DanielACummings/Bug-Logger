@@ -19,8 +19,15 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col-12">
         <bug-info :bugData="bug" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <notes :notesSection="note" />
       </div>
     </div>
   </div>
@@ -28,6 +35,7 @@
 
 <script>
 import BugInfo from "@/components/BugInfo";
+import Notes from "@/components/Notes";
 export default {
   name: "BugDetails",
   mounted() {
@@ -36,6 +44,9 @@ export default {
   computed: {
     bug() {
       return this.$store.state.activeBug;
+    },
+    note() {
+      return this.$store.state;
     }
   },
   data() {
@@ -43,7 +54,8 @@ export default {
   },
   methods: {},
   components: {
-    BugInfo
+    BugInfo,
+    Notes
   }
 };
 </script>

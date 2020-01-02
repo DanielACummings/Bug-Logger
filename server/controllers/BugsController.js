@@ -42,7 +42,7 @@ export default class BugsController {
   async create(req, res, next) {
     try {
       let data = await bugsService.create(req.body)
-      return res.send(data)
+      return res.status(201).send(data)
     } catch (error) {
       next(error)
     }

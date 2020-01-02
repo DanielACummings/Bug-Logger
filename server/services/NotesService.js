@@ -1,8 +1,8 @@
-import mongoose from 'mongoose'
-import Note from '../models/Note'
+import mongoose from "mongoose"
+import Note from "../models/Note"
 import ApiError from '../utils/ApiError'
 
-const _repository = mongoose.model('Note', Note)
+const _repository = mongoose.model("Note", Note)
 
 class NotesService {
   async getById(id) {
@@ -11,6 +11,9 @@ class NotesService {
       throw new ApiError('Invalid ID', 400)
     }
     return data
+  }
+  async getAll() {
+    return await _repository.find({})
   }
   async getNotesOfBug(id) {
     let data = await _repository.find({ "bug": id })

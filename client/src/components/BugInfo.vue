@@ -9,8 +9,26 @@
           <div class="col-3">{{bugData.updatedAt}}</div>
         </div>
         <br />
-        <h5>Description</h5>
-        <div class="col-12">{{bugData.description}}</div>
+        <div class="row">
+          <div class="col-12">
+            <h5>Description</h5>
+            <div>{{bugData.description}}</div>
+          </div>
+          <div class="col-12">
+            <br />
+            <form @submit.prevent="editBug">
+              <textarea
+                type="text"
+                v-model="editedNote.description"
+                placeholder="Edited Description"
+                required
+              />
+              <button class="btn btn-warning">Edit</button>
+            </form>
+            <br />
+            <button @click="closeBug" class="btn btn-danger" type="delete">Close</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -21,9 +39,26 @@ export default {
   name: "BugInfo",
   props: ["bugData"],
   data() {
-    return {};
+    return {
+      editedNote: {
+        description: ""
+      }
+    };
   },
-  methods: {}
+  methods: {
+    closeBug(id) {
+      let close = confirm("Are you sure?");
+      if (close == true) {
+      }
+    },
+    editBug() {
+      let edit = { ...this.editedNote };
+      this.$store.dispatch("editBug", edit);
+      this.editedNote = {
+        description: ""
+      };
+    }
+  }
 };
 </script>
 
