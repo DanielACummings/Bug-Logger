@@ -7,7 +7,7 @@ export default class NotesController {
       .Router()
       .get('/', this.getAll)
       .get('/:id', this.getById)
-      .post('', this.create)
+      .post('/', this.create)
       .put('/:id', this.edit)
       .delete('/:id', this.delete)
   }

@@ -52,8 +52,8 @@ export default {
       this.$store.dispatch("createNote", note);
       this.newNote = {
         content: "",
-        reportedBy: ""
-        // bug: this.$route.params.id
+        reportedBy: "",
+        bug: this.$route.params.id
       };
     }
   },
