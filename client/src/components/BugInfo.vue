@@ -17,12 +17,7 @@
           <div class="col-12">
             <br />
             <form @submit.prevent="editBug">
-              <textarea
-                type="text"
-                v-model="editedNote.description"
-                placeholder="Edited Description"
-                required
-              />
+              <textarea type="text" placeholder="Edited Description" required />
               <button class="btn btn-warning">Edit</button>
             </form>
             <br />
@@ -39,11 +34,7 @@ export default {
   name: "BugInfo",
   props: ["bugData"],
   data() {
-    return {
-      editedNote: {
-        description: ""
-      }
-    };
+    return {};
   },
   methods: {
     closeBug(id) {
@@ -52,11 +43,7 @@ export default {
       }
     },
     editBug() {
-      let edit = { ...this.editedNote };
-      this.$store.dispatch("editBug", edit);
-      this.editedNote = {
-        description: ""
-      };
+      this.$store.dispatch("editBug", this.bugData);
     }
   }
 };

@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import router from "../router";
 export default {
   name: "Navbar",
   mounted() {},

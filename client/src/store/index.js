@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import router from '../router'
 
 // @ts-ignore
 let _api = axios.create({
   baseURL: 'http://localhost:3000/api',
-  timeout: 3000
+  timeout: 5000
 })
 
 Vue.use(Vuex)
@@ -19,6 +20,7 @@ export default new Vuex.Store({
   mutations: {
     addBug(state, bug) {
       state.bugs.push(bug)
+      router.push({ name: "bugDetails", params: { id: bug.id } })
     },
     setAllBugs(state, data) {
       state.bugs = data
