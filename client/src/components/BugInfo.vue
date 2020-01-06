@@ -17,8 +17,13 @@
           <div class="col-12">
             <br />
             <form @submit.prevent="editBug">
-              <textarea type="text" placeholder="Edited Description" required />
-              <button class="btn btn-warning">Edit</button>
+              <input
+                v-model="editedBug.description"
+                type="text"
+                placeholder="Edited Description"
+                required
+              />
+              <button type="submit" class="btn btn-warning">Edit</button>
             </form>
             <br />
             <button @click="closeBug" class="btn btn-danger" type="delete">Close</button>
@@ -33,17 +38,35 @@
 export default {
   name: "BugInfo",
   props: ["bugData"],
+  mounted() {
+    this.$store.dispatch("getBugById", this.$route.params.id);
+  },
+  computed: {
+    activeBug() {
+      return this.$store.state.activeBug;
+    }
+  },
   data() {
-    return {};
+    return {
+      editedBug: {
+        description: "",
+        id: this.bugData.id
+      }
+    };
   },
   methods: {
     closeBug(id) {
       let close = confirm("Are you sure?");
       if (close == true) {
+        this.$store.dispatch("closeBug", this.bugData.id);
       }
     },
     editBug() {
-      this.$store.dispatch("editBug", this.bugData);
+      let bugEdit = { ...this.editedBug };
+      this.$store.dispatch("editBug", bugEdit);
+      this.editedBug = {
+        description: ""
+      };
     }
   }
 };

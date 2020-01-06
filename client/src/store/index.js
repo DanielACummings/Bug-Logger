@@ -6,7 +6,7 @@ import router from '../router'
 // @ts-ignore
 let _api = axios.create({
   baseURL: 'http://localhost:3000/api',
-  timeout: 5000
+  timeout: 7000
 })
 
 Vue.use(Vuex)
@@ -51,8 +51,12 @@ export default new Vuex.Store({
       let res = await _api.get('bugs/' + id)
       commit('setActiveBug', res.data)
     },
-    async editBug({ commit, dispatch }, payload) {
-      await _api.put('bugs/' + payload.id, payload)
+    async editBug({ commit, dispatch }, bugEdit) {
+      await _api.put('bugs/' + bugEdit.id, bugEdit.description)
+      dispatch('getBugs')
+    },
+    async closeBug({ commit, dispatch }, id) {
+      await _api.delete("bugs/" + id)
       dispatch('getBugs')
     },
     async createNote({ commit, dispatch }, note) {
