@@ -34,15 +34,16 @@ import Note from "@/components/Note";
 export default {
   name: "Notes",
   mounted() {
-    this.$store.dispatch("getNotes");
-    // this.$store.dispatch("getNotesByBug");
+    // this.$store.dispatch("getNotes");
+    this.$store.dispatch("getNotesByBug", this.$route.params.id);
   },
   props: ["notesSection"],
   data() {
     return {
       newNote: {
         content: "",
-        reportedBy: ""
+        reportedBy: "",
+        bug: this.$route.params.id
       }
     };
   },

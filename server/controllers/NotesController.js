@@ -12,6 +12,7 @@ export default class NotesController {
       .delete('/:id', this.delete)
   }
 
+
   async getById(req, res, next) {
     try {
       let data = await notesService.getById(req.params.id)
@@ -30,7 +31,7 @@ export default class NotesController {
   }
   async create(req, res, next) {
     try {
-      let data = notesService.create(req.body)
+      let data = await notesService.create(req.body)
       return res.status(201).send(data)
     } catch (error) {
       next(error)

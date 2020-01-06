@@ -16,7 +16,7 @@ class NotesService {
     return await _repository.find({})
   }
   async getNotesOfBug(id) {
-    let data = await _repository.find({ "bug": id })
+    let data = await _repository.find({ bug: id })
     return data
   }
   async create(reqBody) {
