@@ -34,7 +34,6 @@ import Note from "@/components/Note";
 export default {
   name: "Notes",
   mounted() {
-    // this.$store.dispatch("getNotes");
     this.$store.dispatch("getNotesByBug", this.$route.params.id);
   },
   props: ["notesSection"],
@@ -61,7 +60,6 @@ export default {
   computed: {
     notes() {
       return this.$store.state.notes;
-      // change to just notes with the open bug ID
     }
   },
   components: {

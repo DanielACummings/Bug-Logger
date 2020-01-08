@@ -33,7 +33,6 @@
 </template>
 
 <script>
-// @ is an alias to /src;
 import BugComponent from "@/components/BugComponent";
 export default {
   name: "home",

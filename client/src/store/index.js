@@ -25,16 +25,6 @@ export default new Vuex.Store({
     setAllBugs(state, data) {
       state.bugs = data
     },
-    setOpenBugs(state, data) {
-      data.forEach(bug => {
-        data = []
-        if ({ closed: false }) {
-          data.push(bug)
-        }
-        return data
-      });
-      state.bugs = data
-    },
     setActiveBug(state, bug) {
       state.activeBug = bug
     },
@@ -57,10 +47,6 @@ export default new Vuex.Store({
       let res = await _api.get('bugs')
       commit('setAllBugs', res.data)
     },
-    // async getOpenBugs({commit, dispatch}) {
-    //   let res = await _api.get('bugs')
-    //   commit('setOpenBugs', res.data)
-    // },
     async getBugById({ commit, dispatch }, id) {
       let res = await _api.get('bugs/' + id)
       commit('setActiveBug', res.data)
@@ -89,7 +75,5 @@ export default new Vuex.Store({
       await _api.delete('notes/' + id)
       dispatch('getNotes')
     }
-  },
-  modules: {
   }
 })
