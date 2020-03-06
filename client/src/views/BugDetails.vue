@@ -49,10 +49,6 @@ export default {
       return this.$store.state.notes;
     }
   },
-  data() {
-    return {};
-  },
-  methods: {},
   components: {
     BugInfo,
     Notes
