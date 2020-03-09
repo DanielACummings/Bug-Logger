@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-5">
 				<router-link :to="{name: 'home'}">
-					<h1>Bug Logger</h1>
+					<h1 class="text-success">Bug Logger</h1>
 				</router-link>
 			</div>
 			<div class="col-7">

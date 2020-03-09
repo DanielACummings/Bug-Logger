@@ -13,7 +13,7 @@
 						<h5>Reported By</h5>
 					</div>
 					<div class="col-3">
-						<h5>Closed</h5>
+						<h5>Status</h5>
 					</div>
 					<div class="col-3">
 						<h5>Last Modified</h5>
