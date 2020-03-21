@@ -24,11 +24,55 @@
 			<!-- notes inserted here -->
 			<note :noteData="note" />
 		</div>
-		<form @submit.prevent="createNote">
-			<input type="text" v-model="newNote.reportedBy" placeholder="Name" required />
-			<input type="text" v-model="newNote.content" placeholder="Message" required />
-			<button type="submit" class="btn btn-success">Add</button>
-		</form>
+		<div class="col-3">
+			<button
+				type="button"
+				class="btn btn-primary mt-4"
+				data-toggle="modal"
+				data-target="#add-note-modal"
+				data-whatever="@getbootstrap"
+			>Add Note</button>
+
+			<div
+				class="modal fade"
+				id="add-note-modal"
+				tabindex="-1"
+				role="dialog"
+				aria-labelledby="add-note-modal-label"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="add-note-modal-label">Add Note</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form @submit.prevent="createNote">
+								<div class="form-group">
+									<label for="reported-by" class="col-form-label">Name:</label>
+									<input
+										type="text"
+										v-model="newNote.reportedBy"
+										class="form-control"
+										id="reported-by"
+										required
+									/>
+								</div>
+								<div class="form-group">
+									<label for="content" class="col-form-label">Message:</label>
+									<input type="text" v-model="newNote.content" class="form-control" id="content" />
+								</div>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
