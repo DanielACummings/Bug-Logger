@@ -22,7 +22,7 @@
 					<input v-model="editedBug.description" type="text" placeholder="Edited Description" required />
 					<button type="submit" class="btn btn-warning">Edit</button>
 				</form>
-				<button @click="closeBug" class="btn btn-danger mt-5 mb-5" type="delete">Close</button>
+				<button @click="closeBug" class="btn btn-danger mt-5 mb-5" type="delete">Close Bug</button>
 			</div>
 		</div>
 	</div>

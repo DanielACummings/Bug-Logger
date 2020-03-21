@@ -23,13 +23,13 @@
 							id="reportBugModal"
 							tabindex="-1"
 							role="dialog"
-							aria-labelledby="reportBugModalLabel"
+							aria-labelledby="report-bug-modal-label"
 							aria-hidden="true"
 						>
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="newPicModalLabel">Report Bug</h5>
+										<h5 class="modal-title" id="report-bug-modal-label">Report Bug</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>
