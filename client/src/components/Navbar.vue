@@ -14,13 +14,13 @@
 							type="button"
 							class="btn btn-primary mt-4"
 							data-toggle="modal"
-							data-target="#reportBugModal"
+							data-target="#report-bug-modal"
 							data-whatever="@getbootstrap"
 						>Report Bug</button>
 
 						<div
 							class="modal fade"
-							id="reportBugModal"
+							id="report-bug-modal"
 							tabindex="-1"
 							role="dialog"
 							aria-labelledby="report-bug-modal-label"
